@@ -14,7 +14,7 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
-    @cocktail.photo.attach(io: :file, filename: 'uploaded image', content_type: 'image/jpg')
+    @cocktail.photo.attach(io: cocktail_params[:photo], filename: 'uploaded image', content_type: 'image/jpg')
     if (@cocktail.save)
       redirect_to cocktail_path(@cocktail)
     else
