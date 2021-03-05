@@ -19,10 +19,4 @@ require 'open-uri'
 # end
 puts 'Destroying cocktails...'
 Cocktail.destroy_all
-
-file = URI.open('https://www.umami.site/wp-content/uploads/2016/03/rum-coke-2.jpg')
-5.times do
-cocktail = Cocktail.new(name: 'Rum&Coke')
-cocktail.photo.attach(io: file, filename: 'rumcoke.png', content_type: 'image/png')
-end
 puts 'Completed...'
