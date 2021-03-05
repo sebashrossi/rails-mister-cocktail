@@ -29,7 +29,7 @@
       <div class="content-block__effect">
         <div class="portfolio-effect">
           <div class="portfolio-item portfolio-effect__item portfolio-item--eff1 shadow">
-            <img class="portfolio-item__image" src="https://source.unsplash.com/featured/?cocktails" alt="Portfolio Item" width="826" height="551">
+            <img class="portfolio-item__image" src="<%= cl_image_path cocktail.photo.key %>" alt="Portfolio Item" width="826" height="551">
             <div class="portfolio-item__info">
               <h3 class="portfolio-item__header"><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
             </div>
