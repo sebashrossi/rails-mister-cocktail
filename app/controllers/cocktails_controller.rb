@@ -8,6 +8,15 @@ class CocktailsController < ApplicationController
     @dose = Dose.new
   end
 
+  def search
+    if params[:search].empty?
+      redirect_to root_path
+    else
+      @param = params[:search].capitalize
+      @results = Cocktail.all.where('name LIKE :search', search: @param)
+    end
+  end
+
   def new
     @cocktail = Cocktail.new
   end
@@ -15,7 +24,7 @@ class CocktailsController < ApplicationController
   def create
     @cocktail = Cocktail.new(cocktail_params)
     @cocktail.photo.attach(io: cocktail_params[:photo], filename: 'uploaded image', content_type: 'image/jpg')
-    if (@cocktail.save)
+    if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
       render 'new'

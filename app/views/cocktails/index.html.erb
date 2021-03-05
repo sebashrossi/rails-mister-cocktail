@@ -45,6 +45,7 @@
     <h1 class="display-4">Create Your Cocktail</h1>
     <p class="lead">Create a cocktail of your choice with the many ingredients we have</p>
     <%= link_to 'Start here', new_cocktail_path(@cocktail), class: 'btn btn-outline-primary' %>
+    <%= link_to 'Random Cocktail', random_create_path, method: :post, class: 'btn btn-outline-primary' %>
   </div>
 </div>
 <%= render 'shared/footer' %>

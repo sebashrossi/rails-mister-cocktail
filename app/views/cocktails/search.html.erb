@@ -1,0 +1,20 @@
+<h1 class="header">Search results for '<%= params[:search] %>' (<%= @results.all.count %>)</h1>
+<div class="container-fluid main">
+  <div class="row">
+    <% @results.each do |result| %>
+    <div class="col-3">
+      <div class="content-block__effect">
+        <div class="portfolio-effect">
+          <div class="portfolio-item portfolio-effect__item portfolio-item--eff1 shadow">
+            <img class="portfolio-item__image" src="<%= cl_image_path result.photo.key %>" alt="Portfolio Item" width="826" height="551">
+            <div class="portfolio-item__info">
+              <h3 class="portfolio-item__header"><%= link_to result.name, cocktail_path(result) %></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<%= render 'shared/footer' %>

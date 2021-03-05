@@ -32,19 +32,15 @@ $portfolio-link-offset: 10px;
 }
 
 //mixin for image positioning
-@mixin img-position($max-width: 200%, $max-height: 200%) {
+@mixin img-position {
   position: relative;
   overflow: hidden;
 
   img {
     @include position-absolute($top: 50%, $left: 50%);
 
-    width: auto;
-    height: auto;
-    min-width: 100%;
-    min-height: 100%;
-    max-width: $max-width;
-    max-height: $max-height;
+    width: 100%;
+    height: 100%;
     transform: translate(-50%, -50%);
   }
 }
@@ -140,6 +136,10 @@ $portfolio-link-offset: 10px;
 
   width: $portfolio-item-width;
   height: $portfolio-item-height;
+}
+
+.portfolio-item__image {
+  object-fit: cover;
 }
 
 .portfolio-item__info {
