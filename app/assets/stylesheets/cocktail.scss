@@ -1,0 +1,378 @@
+//VARIABLES
+$accent-theme-color: #7A306C;
+$accent-theme-color2: #8D909B;
+$dark-theme-color: #101010;
+$light-theme-color: #fff;
+
+$portfolio-item-width: 300px;
+$portfolio-item-height: 300px;
+
+$portfolio-item-info-offset: 7px;
+
+$portfolio-link-dimensions: 35px;
+$portfolio-link-offset: 10px;
+
+//MIXINS
+
+//transitions mixin
+@mixin transition-mix($property: all, $duration: 0.2s, $timing: linear, $delay: 0s) {
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+  transition-delay: $delay;
+}
+
+//position absolute mixin
+@mixin position-absolute ($top: null, $left: null, $right: null, $bottom: null) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bottom;
+}
+
+//mixin for image positioning
+@mixin img-position($max-width: 200%, $max-height: 200%) {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    @include position-absolute($top: 50%, $left: 50%);
+
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: $max-width;
+    max-height: $max-height;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* COMMON STYLES */
+.main {
+  width: 1200px;
+  margin: 40px auto;
+  margin-bottom: 80px;
+  text-align:  center;
+}
+
+.shadow {
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.container-featured{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  font-family: 'Satisfy', cursive;
+  font-size: 60px;
+  margin-bottom: 40px;
+}
+
+.portfolio-item__header a {
+  text-decoration: none;
+}
+
+.container-jumbo {
+  margin-left: 20px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: 30px auto 0;
+
+  a {
+    @include transition-mix;
+
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20px;
+
+    font: {
+      size: 17px;
+    }
+    color: #1f1f1f;
+    text-decoration: none;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      color: $accent-theme-color;
+    }
+
+    i {
+      color: $accent-theme-color;
+      margin-right: 5px
+    }
+  }
+}
+
+.content-block {
+  margin-top: 50px;
+
+  h2 {
+    margin-bottom: 30px;
+  }
+}
+
+.content-block__effect {
+  margin-bottom: 50px;
+}
+
+/* EFFECT STYLES */
+
+.portfolio-effect {
+  display: flex;
+  justify-content: space-between;
+}
+
+.portfolio-item {
+  @include img-position();
+
+  width: $portfolio-item-width;
+  height: $portfolio-item-height;
+}
+
+.portfolio-item__info {
+  @include position-absolute($top: $portfolio-item-info-offset, $left: $portfolio-item-info-offset);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 2 * #{$portfolio-item-info-offset});
+  height: calc(100% - 2 * #{$portfolio-item-info-offset});
+
+  background-color: rgba(255,255,255, .7);
+}
+
+.portfolio-item__header {
+  position: relative;
+
+  margin: 0 0 20px 0;
+  padding: 15px 0;
+
+  font: {
+    size: 22px;
+  }
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  &:after {
+    @include position-absolute($bottom: 0, $left: 0);
+
+    display: block;
+    height: 2px;
+    width: 100%;
+
+    content: '';
+
+    background-color: $accent-theme-color2;
+  }
+}
+
+.portfolio-item__links {
+  display: flex;
+}
+
+.portfolio-item__link-block {
+   position: relative;
+
+   width: $portfolio-link-dimensions;
+   height: $portfolio-link-dimensions;
+   margin-right: $portfolio-link-offset;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.portfolio-item__link {
+  @include transition-mix;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  color: $dark-theme-color;
+  text-decoration: none;
+
+  border: 1px solid $dark-theme-color;
+  border-radius: 50%;
+
+  &:hover {
+    color: $light-theme-color;
+
+    background-color: $dark-theme-color;
+  }
+}
+
+.jumbotron {
+  background-image: url(https://img5.goodfon.com/wallpaper/nbig/8/2d/kokteil-miata-led-apnlsin-laim.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: 0px 100px;
+  color: #F104A0;
+  width: 100%;
+  background-color: black;
+  padding: 120px;
+}
+
+.display-4 {
+  font-size: 80px;
+  font-family: 'Satisfy', cursive;
+}
+
+
+/* EFFECT STYLES */
+.portfolio-item--eff1 {
+
+  .portfolio-item__info {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+
+  .portfolio-item__header {
+    top: -10px;
+    opacity: 0;
+
+    &:after {
+      transform: scaleX(0);
+    }
+  }
+
+  .portfolio-item__link-block {
+    top: 20px;
+
+    opacity: 0;
+  }
+}
+
+.portfolio-item--eff1:hover {
+
+  .portfolio-item__info {
+    @include transition-mix($duration: .4s);
+
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .portfolio-item__header {
+    @include transition-mix($delay: .45s);
+
+    top: 0;
+    opacity: 1;
+
+    &:after {
+      @include transition-mix($duration: .3s, $timing: cubic-bezier(0.63, 0.01, 0, 1.39), $delay: .65s);
+
+      transform: scaleX(1);
+    }
+  }
+
+  .portfolio-item__link-block {
+    top: 0;
+    opacity: 1;
+
+    &:first-child {
+      @include transition-mix($delay: .85s);
+    }
+
+    &:nth-child(2) {
+      @include transition-mix($delay: .95s);
+    }
+  }
+}
+
+.container-featured{
+  display: flex;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.featured, .header {
+  font-size: 35px;
+  font-family: 'Satisfy', cursive;
+  margin-top: 80px;
+  margin-bottom: 30px;
+  margin-left: 220px;
+}
+
+.featured-info {
+  margin-top: 60px;
+  margin-left: 60px;
+}
+
+  .featured-info ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .featured-info h1 {
+    font-size: 60px;
+    font-family: 'Playfair Display', serif;
+  }
+
+.image-wrapper {
+  width: 600px;
+  height: 400px;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.image-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: left;
+}
+
+.image-1 {
+  clip-path: polygon(0 0, 0 32%, 28% 0);
+  transform: translate(-10px, -10px);
+  transition: transform 300ms ease;
+  transform-origin: top;
+  .image-wrapper:hover & {
+    transform: translate(0,0);
+  }
+}
+
+.image-2 {
+  clip-path: polygon(28% 0, 0 32%, 0 100%, 17% 100%, 90% 0);
+  transform: translate(-30px, 5px);
+  transition: transform 300ms ease;
+  .image-wrapper:hover & {
+    transform: translate(0,0);
+  }
+}
+
+.image-3 {
+  clip-path: polygon(100% 0, 100% 65%, 74% 100%, 17% 100%, 90% 0);
+  transform: translate(-15px, -10px);
+  transition: transform 300ms ease;
+  .image-wrapper:hover & {
+    transform: translate(0,0);
+  }
+}
+
+.image-4 {
+  clip-path: polygon(100% 65%, 74% 100%, 100% 100%);
+  transform: translate(-32px, 5px);
+  transition: transform 300ms ease;
+  transform-origin: top;
+  .image-wrapper:hover & {
+    transform: translate(0,0);
+  }
+}

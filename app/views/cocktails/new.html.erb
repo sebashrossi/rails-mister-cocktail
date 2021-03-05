@@ -1,0 +1,6 @@
+<h1>Create a Cocktail</h1>
+
+<%= simple_form_for @cocktail do |f| %>
+  <%= f.input :name, error: 'A cocktail with that name already exists...' %>
+  <%= f.button :submit %>
+<% end %>

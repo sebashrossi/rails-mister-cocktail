@@ -1,0 +1,28 @@
+<%= render 'banner' %>
+<div class="row">
+  <div class="container-show">
+    <div class="col-5">
+      <div class="quotes">
+        <div class="col-2">
+          <h1 style="font-size: 80px;">❝</h1>
+        </div>
+        <div class="col-10">
+          <h3>"I feel sorry for people who don't drink. When they wake up in the morning that's as good as they're going to feel all day."</h3>
+          <h5>Frank Sinatra.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-5">
+      <h1>Ingredients</h1>
+      <ul>
+        <% @cocktail.doses.each do |dose|  %>
+        <li><%= dose.description %> <%= dose.ingredient.name %> <%= link_to cocktail_dose_path(@cocktail), method: :delete do %>
+           <i class="far fa-trash-alt"></i>
+        </li>
+        <% end %>
+        <% end %>
+      </ul>
+      <%= link_to 'Create a new ingredient', new_cocktail_dose_path(@cocktail), class: 'btn btn-outline-primary' %>
+    </div>
+  </div>
+</div>

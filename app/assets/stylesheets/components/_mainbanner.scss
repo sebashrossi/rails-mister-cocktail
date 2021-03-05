@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Philosopher:ital,wght@1,700&display=swap');
+
+.hero {
+  background-color: black;
+  background-size: fit;
+  background-repeat: no-repeat;
+  background-position: -120px -55px;
+  padding: 180px 0;
+  padding-left: 400px;
+  box-shadow: 0 0 20px #F104A0;;
+}
+
+.banner-h1 {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 80px;
+  shadow: 0 0 30px #F104A0;
+}
+
+
+
+.container-main {
+  border-radius: 10px;
+  margin: 0 auto;
+  width: 800px;
+  color: white;
+  padding: 50px;
+}
+
+.container-main div {
+  margin-top: 7%;
+}
+
+.container-main h2 {
+  font-family: 'Satisfy', cursive;
+}
