@@ -230,6 +230,17 @@ $portfolio-link-offset: 10px;
   padding: 120px;
 }
 
+.jumbotron a {
+  font-size: 20px;
+  border-color:  #F104A0;
+  color: #F104A0;
+  &:hover {
+    color: black;
+    border-color:  #F104A0;
+    background-color: #F104A0;
+  }
+}
+
 .display-4 {
   font-size: 80px;
   font-family: 'Satisfy', cursive;

@@ -1,6 +1,10 @@
+<div class="background" style="background-image: url(https://media.cntraveler.com/photos/5a91a7f9c6516a534a5304a2/master/w_4000,h_2667,c_limit/Codename-Mixology-Akasaka__2018_D50A4807.jpg);"></div>
+<div class="form">
 <h1>Create a Cocktail</h1>
-
 <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name, error: 'A cocktail with that name already exists...' %>
   <%= f.button :submit %>
 <% end %>
+
+</div>
+
