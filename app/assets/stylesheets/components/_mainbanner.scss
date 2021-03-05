@@ -4,21 +4,21 @@
   background-color: black;
   background-size: fit;
   background-repeat: no-repeat;
-  background-position: -120px -55px;
-  padding: 180px 0;
-  padding-left: 400px;
-  box-shadow: 0 0 20px #F104A0;;
+  background-position: 0px -90px;
+  padding: 210px 0;
+  padding-left: 600px;
 }
 
 .banner-h1 {
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  font-size: 80px;
+  font-size: 120px;
   shadow: 0 0 30px #F104A0;
 }
 
 
 
 .container-main {
+  position: relative;
   border-radius: 10px;
   margin: 0 auto;
   width: 800px;
@@ -27,9 +27,14 @@
 }
 
 .container-main div {
+  position: absolute;
+  bottom: 25px;
+  right: 100px;
   margin-top: 7%;
 }
 
 .container-main h2 {
+  color: #F104A0;
+  font-size: 40px;
   font-family: 'Satisfy', cursive;
 }

@@ -10,3 +10,13 @@
 .background-black{
   background-color: black;
 }
+
+.navbar button {
+  border-color: #F104A0;
+  color: #F104A0;
+  &:hover {
+    background-color: #F104A0;
+    color: black;
+    border-color: #F104A0;
+  }
+}
